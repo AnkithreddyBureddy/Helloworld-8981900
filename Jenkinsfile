@@ -30,9 +30,11 @@ pipeline {
             steps {
                 echo 'Deploying to Azure...'
                 sh '''
-                    7z a function.zip .  // Using 7z to create the zip file
+                    # Login to Azure using Service Principal
                     az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET --tenant $AZURE_TENANT_ID
-                    az functionapp deployment source config-zip --resource-group $RESOURCE_GROUP --name $FUNCTION_APP_NAME --src function.zip
+
+                    # Deploy directly from the workspace to Azure Function App
+                    az functionapp deployment source config-zip --resource-group $RESOURCE_GROUP --name $FUNCTION_APP_NAME --src .
                 '''
             }
         }
