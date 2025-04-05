@@ -1,10 +1,10 @@
 pipeline {
     agent any
     environment {
-        AZURE_CLIENT_ID = credentials('AZURE_CLIENT_ID')
-        AZURE_CLIENT_SECRET = credentials('AZURE_CLIENT_SECRET')
-        AZURE_TENANT_ID = credentials('AZURE_TENANT_ID')
-        AZURE_SUBSCRIPTION_ID = credentials('AZURE_SUBSCRIPTION_ID')
+        AZURE_CLIENT_ID     = credentials('azure-client-id')  // Updated based on your credential name
+        AZURE_CLIENT_SECRET = credentials('azure-client-secret')  // Updated based on your credential name
+        AZURE_TENANT_ID     = credentials('azure-tenant-id')  // Updated based on your credential name
+        AZURE_SUBSCRIPTION_ID = credentials('azure-subscription-id')  // If you have this credential, you can add it similarly
     }
     stages {
         stage('Build') {
@@ -13,14 +13,14 @@ pipeline {
                 sh 'npm install'
             }
         }
- 
+
         stage('Test') {
             steps {
                 echo 'Running tests...'
                 sh 'npm test'
             }
         }
- 
+
         stage('Package') {
             steps {
                 echo 'Zipping the Azure Function code...'
@@ -31,7 +31,7 @@ pipeline {
                 }
             }
         }
- 
+
         stage('Deploy') {
             steps {
                 echo 'Deploying to Azure...'
