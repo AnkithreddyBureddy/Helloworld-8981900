@@ -1,0 +1,15 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "WEBSITE_SLOT_NAME": "Production",
+    "FUNCTIONS_EXTENSION_VERSION": "~4",
+    "ScmType": "None",
+    "AzureWebJobsSecretStorageType": "files",
+    "WEBSITE_AUTH_ENABLED": "False",
+    "APPLICATIONINSIGHTS_CONNECTION_STRING": "InstrumentationKey=31c0d6ff-8594-4cd1-bc5a-b34579e2b033;IngestionEndpoint=https://canadacentral-1.in.applicationinsights.azure.com/;LiveEndpoint=https://canadacentral.livediagnostics.monitor.azure.com/;ApplicationId=843b3159-7b99-4bf2-85f5-56905791535f",
+    "WEBSITE_NODE_DEFAULT_VERSION": "20.18.3",
+    "WEBSITE_DEFAULT_HOSTNAME": "helloworld-89881900.azurewebsites.net",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "WEBSITE_SITE_NAME": "Helloworld-89881900"
+  }
+}
