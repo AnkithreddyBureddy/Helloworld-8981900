@@ -6,7 +6,7 @@ pipeline {
         AZURE_CLIENT_SECRET = credentials('azure-client-secret')
         AZURE_TENANT_ID     = credentials('azure-tenant-id')
         RESOURCE_GROUP      = 'myResourceGroup'
-        FUNCTION_APP_NAME   = 'my-hello-func-ar12345'
+        FUNCTION_APP_NAME   = 'Helloworld-89881900'
     }
     tools {
     nodejs "NodeJS"  // This is the name of the NodeJS tool configured in Jenkins
