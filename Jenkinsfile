@@ -1,10 +1,13 @@
 pipeline {
     agent any
     environment {
-        AZURE_CLIENT_ID     = credentials('azure-client-id')  // Updated based on your credential name
-        AZURE_CLIENT_SECRET = credentials('azure-client-secret')  // Updated based on your credential name
-        AZURE_TENANT_ID     = credentials('azure-tenant-id')  // Updated based on your credential name
-        AZURE_SUBSCRIPTION_ID = credentials('azure-subscription-id')  // If you have this credential, you can add it similarly
+        AZURE_CLIENT_ID     = credentials('azure-client-id')
+        AZURE_CLIENT_SECRET = credentials('azure-client-secret')
+        AZURE_TENANT_ID     = credentials('azure-tenant-id')
+        AZURE_SUBSCRIPTION_ID = credentials('azure-subscription-id')
+    }
+    tools {
+        nodejs "NodeJS"  // This is the name of the NodeJS tool configured in Jenkins
     }
     stages {
         stage('Build') {
