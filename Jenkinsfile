@@ -8,7 +8,9 @@ pipeline {
         RESOURCE_GROUP      = 'myResourceGroup'
         FUNCTION_APP_NAME   = 'my-hello-func-ar12345'
     }
-
+    tools {
+    nodejs "NodeJS"  // This is the name of the NodeJS tool configured in Jenkins
+    }
     stages {
         stage('Build') {
             steps {
