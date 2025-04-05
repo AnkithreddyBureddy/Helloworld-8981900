@@ -28,9 +28,8 @@ pipeline {
             steps {
                 echo 'Zipping the Azure Function code...'
                 script {
-                    powershell '''
-                        Compress-Archive -Path . -DestinationPath function.zip -Force
-                    '''
+                    // Use zip command for packaging the code
+                    sh 'zip -r function.zip .'
                 }
             }
         }
