@@ -7,6 +7,8 @@ pipeline {
         AZURE_TENANT_ID     = credentials('azure-tenant-id')
         RESOURCE_GROUP      = 'myResourceGroup'
         FUNCTION_APP_NAME   = 'Helloworld-89881900'
+        // Add Azure CLI to PATH explicitly if not already in the system PATH
+        PATH                = "$PATH:C:\\Program Files\\Microsoft SDKs\\Azure\\CLI2\\"
     }
     tools {
         nodejs "NodeJS"  // This is the name of the NodeJS tool configured in Jenkins
