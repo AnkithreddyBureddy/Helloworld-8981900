@@ -7,12 +7,9 @@ pipeline {
         AZURE_TENANT_ID     = credentials('azure-tenant-id')
         RESOURCE_GROUP      = 'myResourceGroup'
         FUNCTION_APP_NAME   = 'Helloworld-89881900'
-        // Add Azure CLI to PATH explicitly if not already in the system PATH
         PATH                = "$PATH:C:\\Program Files\\Microsoft SDKs\\Azure\\CLI2\\"
     }
-    tools {
-        nodejs "NodeJS"  // This is the name of the NodeJS tool configured in Jenkins
-    }
+
     stages {
         stage('Build') {
             steps {
@@ -32,10 +29,7 @@ pipeline {
             steps {
                 echo 'Deploying to Azure...'
                 sh '''
-                    # Login to Azure using Service Principal
                     az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET --tenant $AZURE_TENANT_ID
-
-                    # Deploy directly from the workspace to Azure Function App
                     az functionapp deployment source config-zip --resource-group $RESOURCE_GROUP --name $FUNCTION_APP_NAME --src .
                 '''
             }
